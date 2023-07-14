@@ -65,4 +65,6 @@ public class Book {
     public int hashCode() {
         return getId() != null ? getId().hashCode() : 0;
     }
+
+    //HASCODE PRO HIBERNATE DETERMINAR SE DOIS OBJETOS SÃO IGUAIS
 }
