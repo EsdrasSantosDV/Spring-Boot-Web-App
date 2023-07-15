@@ -67,10 +67,16 @@ public class BootstrapData implements CommandLineRunner {
         newPublisher.setCity("St Petersburg");
         newPublisher.setZip("sdag");
 
-        publisherRepository.save(newPublisher);
 
 
+        Publisher savedPublisher=publisherRepository.save(newPublisher);
 
+        savedPublisher.getBooks().add(cleanArchetype);
+
+        cleanArchetypeSaved.setPublisher(savedPublisher);
+
+        bookRepository.save(cleanArchetypeSaved);
+        publisherRepository.save(savedPublisher);
 
         System.out.println("In bootstrap");
         System.out.println("Author COunt"+authorRepository.count());

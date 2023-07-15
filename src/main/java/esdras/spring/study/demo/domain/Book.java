@@ -23,6 +23,22 @@ public class Book {
     @ManyToOne()
     private Publisher publisher;
 
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public Set<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
+    }
+
     public Long getId() {
         return id;
     }
@@ -53,6 +69,8 @@ public class Book {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
+                ", authors=" + authors +
+                ", publisher=" + publisher +
                 '}';
     }
 

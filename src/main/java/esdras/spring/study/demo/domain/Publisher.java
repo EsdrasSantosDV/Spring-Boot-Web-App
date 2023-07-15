@@ -22,6 +22,14 @@ public class Publisher {
     @OneToMany(mappedBy = "publisher")
     private Set<Book> books= new HashSet<>();
 
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
+
     public Long getId() {
         return id;
     }
@@ -62,6 +70,7 @@ public class Publisher {
         this.zip = zip;
     }
 
+
     @Override
     public String toString() {
         return "Publisher{" +
@@ -70,9 +79,9 @@ public class Publisher {
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", zip='" + zip + '\'' +
+                ", books=" + books +
                 '}';
     }
-
 
     @Override
     public boolean equals(Object o) {
