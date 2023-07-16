@@ -54,6 +54,10 @@ public class BootstrapData implements CommandLineRunner {
 
         esdrasSaved.getBooks().add(cleanArchetype);
         pedroSaved.getBooks().add(dindoSaved);
+        //LEMBRAR DE CHAVEAR AMBOS OS LADOS
+        cleanArchetypeSaved.getAuthors().add(esdrasSaved);
+        dindoSaved.getAuthors().add(pedroSaved);
+
         //SO QUE ATE AQUI NÃO PERSISTEMOS A ASSOCIAÇÃO DOS AUTORES COM OS LIVROS
 
         //MAS AQUI PERSISTIMOS
@@ -72,10 +76,11 @@ public class BootstrapData implements CommandLineRunner {
         Publisher savedPublisher=publisherRepository.save(newPublisher);
 
         savedPublisher.getBooks().add(cleanArchetype);
-
+        savedPublisher.getBooks().add(dindoSaved);
         cleanArchetypeSaved.setPublisher(savedPublisher);
-
+        dindoSaved.setPublisher(savedPublisher);
         bookRepository.save(cleanArchetypeSaved);
+        bookRepository.save(dindoSaved);
         publisherRepository.save(savedPublisher);
 
         System.out.println("In bootstrap");
